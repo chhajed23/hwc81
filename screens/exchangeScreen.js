@@ -22,9 +22,9 @@ export default class ExchangeScreen extends React.Component {
       reasonForRequest: "",
     };
   }
-  createUniqueId=()=>{
-    return Math.random().toString(36).substring(7)
-  }
+  createUniqueId = () => {
+    return Math.random().toString(36).substring(7);
+  };
 
   addRequest = (objectName, reasonForRequest) => {
     var userId = this.state.userId;
@@ -36,10 +36,10 @@ export default class ExchangeScreen extends React.Component {
       request_id: randomRequestId,
     });
     this.setState({
-        objectName:"",
-        reasonForRequest:""
+      objectName: "",
+      reasonForRequest: "",
     });
-    return Alert.alert("Object Requested Successfully")
+    return Alert.alert("Object Requested Successfully");
   };
 
   render() {
@@ -60,7 +60,7 @@ export default class ExchangeScreen extends React.Component {
 
           <TextInput
             style={styles.formTextInput}
-            placeholder="Why do you need the Object??"
+            placeholder="Why do you need the Object ?"
             value={this.state.reasonForRequest}
             multiline={true}
             numberOfLines={8}
@@ -73,7 +73,10 @@ export default class ExchangeScreen extends React.Component {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              this.addRequest(this.state.objectName, this.state.reasonForRequest);
+              this.addRequest(
+                this.state.objectName,
+                this.state.reasonForRequest
+              );
             }}
           >
             <Text>Request</Text>
