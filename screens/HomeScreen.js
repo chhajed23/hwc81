@@ -11,7 +11,6 @@ import firebase from "firebase";
 import MyHeader from "../components/myHeader";
 import db from "../config";
 
-
 export default class HomeScreen extends React.Component {
   constructor() {
     super();
@@ -23,7 +22,7 @@ export default class HomeScreen extends React.Component {
 
   getrequestedObjectList = () => {
     this.requestRef = db
-      .collection("rexchange_object")
+      .collection("exchange_object")
       .onSnapshot((snapshot) => {
         var requested_object = snapshot.docs.map((document) => document.data());
         this.setState({
@@ -59,11 +58,14 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <MyHeader title="Donate Books" />
+        <MyHeader title="Exchange Objects" />
         <View style={{ flex: 1 }}>
           {this.state.requestedObjectList.length === 0 ? (
             <View style={styles.subContainer}>
-              <Text style={{ fontSize: 20 }}> List of all requested objects</Text>
+              <Text style={{ fontSize: 20 }}>
+                {" "}
+                List of all requested objects
+              </Text>
             </View>
           ) : (
             <FlatList
