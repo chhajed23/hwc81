@@ -123,7 +123,7 @@ export default class SignupLoginScreen extends React.Component {
                 <TouchableOpacity
                   style={styles.registerButton}
                   onPress={() => {
-                    this.signUp(
+                    this.UsersignUp(
                       this.state.emailId,
                       this.state.password,
                       this.state.confirm_password
@@ -181,6 +181,7 @@ export default class SignupLoginScreen extends React.Component {
             address: this.state.address,
             username: this.state.emailId,
           });
+
           return Alert.alert("User Added Successfully", "", [
             {
               text: "Ok",
@@ -247,7 +248,9 @@ export default class SignupLoginScreen extends React.Component {
             <TouchableOpacity
               style={styles.buttonContainer}
               onPress={() => {
-                this.userSignUp(this.state.emailId, this.state.password);
+                this.setState({
+                  isModalVisible: true,
+                });
               }}
             >
               <Text style={styles.buttonText}>Sign Up</Text>
