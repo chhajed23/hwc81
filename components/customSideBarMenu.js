@@ -14,7 +14,7 @@ export default class CustomSideBarMenu extends React.Component {
           <TouchableOpacity
             style={styles.logoutButton}
             onPress={() => {
-              this.props.navigation.navigate("SignupLogiinScreen");
+              this.props.navigation.navigate("SignupLoginScreen");
               firebase.auth().signOut();
             }}
           >
